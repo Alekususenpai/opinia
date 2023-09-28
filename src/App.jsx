@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+
+const Suggestions = lazy(() => import("./pages/Suggestions"));
+const Roadmap = lazy(() => import("./pages/Roadmap"));
+const FeedbackDetail = lazy(() => import("./pages/FeedbackDetail"));
+const FeedbackAdd = lazy(() => import("./pages/FeedbackAdd"));
+const FeedbackEdit = lazy(() => import("./pages/FeedbackEdit"));
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          {/* Entry page for application - the home page */}
+          <Route path="/" element={<LoadingSpinner />} />
+
+          {/* Roadmap page */}
+          <Route path="/roadmap" element={<Roadmap />} />
+
+          {/* Feedback detail page */}
+          <Route
+            path="/feedback/detail/:feedbackID"
+            element={<FeedbackDetail />}
+          />
+
+          {/* Edit feedback page */}
+          <Route path="/feedback/edit/:feedbackID" element={<FeedbackEdit />} />
+
+          {/* Add new feedback page */}
+          <Route path="/feedback/add" element={<FeedbackAdd />} />
+
+          {/* 404 page not found route ( any routes not matching go back to home page ) */}
+          <Route path="*" element={<Suggestions />} />
+        </Routes>
+      </Suspense>
+    </Router>
+  );
 }
 
-export default App
+export default App;
