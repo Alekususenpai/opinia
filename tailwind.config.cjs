@@ -10,7 +10,7 @@ module.exports = {
         primary: "#050816",
       },
       // backgroundImage: {
-      //   "hero-pattern": "url('/src/assets/herobg.jpg')",
+      //   "img-spinner": "url('/src/assets/bg.jpg')",
       // },
     },
   },

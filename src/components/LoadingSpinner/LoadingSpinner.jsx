@@ -4,12 +4,14 @@ import "./LoadingSpinner.css";
 
 export default function LoadingSpinner() {
   return (
-    <section className="spinner-background w-full h-[100vh] flex justify-center items-center">
-      <div className="waveform">
-        <div className="waveform__bar"></div>
-        <div className="waveform__bar"></div>
-        <div className="waveform__bar"></div>
-        <div className="waveform__bar"></div>
+    <section className="spinner-background h-[100vh]">
+      <div className="glassmorphism w-full h-full flex justify-center items-center">
+        <div className="waveform">
+          <div className="waveform__bar"></div>
+          <div className="waveform__bar"></div>
+          <div className="waveform__bar"></div>
+          <div className="waveform__bar"></div>
+        </div>
       </div>
     </section>
   );

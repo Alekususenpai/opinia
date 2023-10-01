@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
+import './styles/base.css';
+import './styles/buttons.css';
 
 const Suggestions = lazy(() => import("./pages/Suggestions"));
 const Roadmap = lazy(() => import("./pages/Roadmap"));
@@ -14,7 +16,7 @@ function App() {
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           {/* Entry page for application - the home page */}
-          <Route path="/" element={<LoadingSpinner />} />
+          <Route path="/" element={<Suggestions />} />
 
           {/* Roadmap page */}
           <Route path="/roadmap" element={<Roadmap />} />
