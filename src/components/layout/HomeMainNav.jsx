@@ -32,9 +32,9 @@ export default function HomeMainNav({ suggestionsCount, sortBy, setSortBy }) {
           <button className='home-right-nav-dropdown-btn' onClick={() => openSortDropdown()}>
             Sort by: <span>{sortBy}</span>
             <svg
-              className={sortDropdownOpen ? 'active' : undefined}
+              className={`${sortDropdownOpen ? 'active' : false} inline`}
               width='10'
-              height='7'
+              height='10'
               xmlns='http://www.w3.org/2000/svg'
             >
               <path d='M1 1l4 4 4-4' stroke='#fff' strokeWidth='2' fill='none' fillRule='evenodd' />

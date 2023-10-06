@@ -1,5 +1,16 @@
-.btn {
-  }
+.btn{
+background: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+  padding: 12px 24px;
+  border-radius: 10px;
+  min-width: 160px;
+  font-size: 14px;
+
+}
 
 .btn,
 .btn > * {

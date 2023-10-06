@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
-import './styles/base.css';
+import Navbar from './components/layout/Navbar';
 import './styles/buttons.css';
 
 const Suggestions = lazy(() => import("./pages/Suggestions"));
@@ -13,6 +13,7 @@ const FeedbackEdit = lazy(() => import("./pages/FeedbackEdit"));
 function App() {
   return (
     <Router>
+      <Navbar/>
       <Suspense fallback={<LoadingSpinner />}>
         <Routes>
           {/* Entry page for application - the home page */}
